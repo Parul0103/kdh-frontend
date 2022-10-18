@@ -1,0 +1,42 @@
+{
+  "homepage": "http://parul3078.github.io/kapoor-di-hatti",
+  "name": "udemy",
+  "version": "1.0.0",
+  "description": "ecommerce site",
+  "main": "server.js",
+  "scripts": {
+    "predeploy":"npm run build",
+    "deploy": "gh-pages -d build",
+    "start": "node backend/server.js",
+    "dev": "SET NODE_ENV=DEVELOPMENT& nodemon backend/server",
+    "prod": "SET NODE_ENV=PRODUCTION& nodemon backend/server",
+    "seeder": "node backend/utils/seeder.js"
+  },
+  "author": "parul mehra",
+  "license": "ISC",
+  "dependencies": {
+    "@google-cloud/local-auth": "^2.1.0",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.0",
+    "bootstrap-icons": "^1.9.1",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "font-awesome": "^4.7.0",
+    "googleapis": "^105.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.5.1",
+    "nodemailer": "^6.7.8",
+    "otp-generator": "^4.0.0",
+    "react": "^18.2.0",
+    "validator": "^13.7.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.8",
+    "gh-pages": "^4.0.0",
+    "nodemon": "^2.0.19",
+    "postcss": "^8.4.16",
+    "tailwindcss": "^3.1.8"
+  }
+}
