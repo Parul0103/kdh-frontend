@@ -56,7 +56,8 @@ export default function Main() {
               <li><a class="nav-link scrollto" href="/login">Login</a></li>
               <li><a class="nav-link scrollto" href="/register">Register</a></li>
               {/* <li><a class="nav-link scrollto" href="/adminlogin">Admin</a></li> */}
-              <li><a class="nav-link scrollto" href="/adminlogin">Admin</a></li>
+              <li><a class="nav-link scrollto" href="/adminlogin">Admin Login</a></li>
+              <li><Link class="nav-link scrollto" to="/show " >Admin Function</Link></li>
               <li class="dropdown"><a href="#"><span>All Products</span> <i class="bi bi-chevron-down"></i></a>
                 <ul>
                   <li><a class="nav-link scrollto" href="#FarmFresh">Vegetables and Fruits</a></li>
@@ -120,7 +121,7 @@ export default function Main() {
                     <h3 className="product-title">{product.name}</h3>
                     <h4 className="product-old-price">₹79.99</h4>
                     <h4 className="product-price">₹{product.price}</h4>
-                    <div>ratings : {product.ratings}⭐</div>
+                    <div className="product-title">ratings : {product.ratings}⭐</div>
                     {/* <a href="#" className="btn btn-primary">
                       Add to Cart
                     </a> */}
@@ -182,7 +183,8 @@ export default function Main() {
         </section>
 
         {/* selfcare */}
-        <section id="SelfCare" className="portfolio section-bg">
+        <section id="SelfCare" className="section-products">
+        {/* <section id="SelfCare" className="section-products"> */}
           <div className="container">
             <div className="row justify-content-center text-center" data-aos="fade-up">
               <div className="col-md-8 col-lg-6">
@@ -195,7 +197,7 @@ export default function Main() {
             <div className="row">
               {organic.map(product => (
                 <div className="col-md-6 col-lg-4 col-xl-3">
-                  <div id="product-2" className="single-product">
+                  <div id="product-1" className="single-product">
                     <div className="part-1">
                       <img className="part-1" src={product.images[0].url} />
                       <span className="discount">15% off</span>

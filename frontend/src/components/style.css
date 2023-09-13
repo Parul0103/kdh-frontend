@@ -609,13 +609,15 @@ body {
   
   .section-products .single-product .part-1 {
       position: relative;
-      height: 290px;
-      max-height: 290px;
-      margin-bottom: 20px;
-      overflow: hidden;
+      height: 335px;
+      width: 295px;
+      border-radius: 5%;
+      /* max-height: 290px; */
+      /* margin-bottom: 20px; */
+      
   }
   
-  .section-products .single-product .part-1::before {
+  /* .section-products .single-product .part-1::before {
           position: absolute;
           content: "";
           top: 0;
@@ -625,11 +627,11 @@ body {
           z-index: -1;
           transition: all 0.3s;
           transform: scale(1.2,1.2) rotate(5deg);
-  }
+  }*/
   
   .section-products .single-product:hover .part-1::before {
           transform: scale(1.2,1.2) rotate(5deg);
-  }
+  } 
   
   .section-products #product-1 .part-1::before {
       /* background: url("https://res.cloudinary.com/parul-0103/image/upload/v1660279974/udemy-project/fruits%20and%20vegetables/zaib-tse-KVv5lFOMY1E-unsplash_vc7dr9.jpg") no-repeat center; */
@@ -719,18 +721,21 @@ body {
   
   .section-products .single-product .part-2 .product-title {
       font-size: 1rem;
+      margin-right: 50px;
   }
   
   .section-products .single-product .part-2 h4 {
       display: inline-block;
       font-size: 1rem;
+      margin-right: 50px;
   }
   
   .section-products .single-product .part-2 .product-old-price {
       position: relative;
       padding: 0 7px;
-      margin-right: 2px;
+      margin-right: 10px;
       opacity: 0.6;
+
   }
   
   .section-products .single-product .part-2 .product-old-price::after {
@@ -742,6 +747,7 @@ body {
       height: 1px;
       background-color: #444444;
       transform: translateY(-50%);
+      
   }
   
   .section-products h3 {
@@ -772,7 +778,7 @@ body {
     color: #848484;
     margin-left: 60px;
   }
-  .carousel {
+  /* .carousel {
       margin: 50px auto;
       padding: 0 70px;
   }
@@ -900,7 +906,7 @@ body {
   }
   .carousel .wish-icon .fa-heart {
       color: #ff6161;
-  }
+  } */
   .star-rating li {
       padding: 0;
   }
@@ -2087,6 +2093,7 @@ body {
     -webkit-transition: all 0.3 ease;
     transition: all 0.3 ease;
     cursor: pointer;
+    margin-right: 60px;
   }
 
    .form button:hover{

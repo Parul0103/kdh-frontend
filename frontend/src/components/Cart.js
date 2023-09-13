@@ -48,6 +48,9 @@ export default function Cart() {
   let orderDetails = []
   // data.map((item) => {orderDetails.push(item.name, item.price,item.id)})
 
+  const check = () =>{
+    console.log(localStorage.getItem('cartItems'))
+  }
   const emptyCart = () => {
     alert('Cart is empty')
     localStorage.removeItem('cartItems');
@@ -95,6 +98,7 @@ export default function Cart() {
           <div className="container text-white py-5 text-center">
             <h1 className="display-4">CART</h1>
             <p />
+            {check()}
           </div>
           {/* End */}
           <div className="pb-5">

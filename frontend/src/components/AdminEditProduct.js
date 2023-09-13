@@ -1,24 +1,33 @@
 import React, { useEffect, useState } from 'react'
-import { useLocation } from 'react-router-dom'
+import { Link, Navigate, useLocation } from 'react-router-dom'
 import axios from 'axios'
 import Header from './Header';
 import Footer from './Footer';
 
+import { useNavigate } from 'react-router-dom';
+
 export default function EditHero() {
   const location = useLocation()
+  //location ke state me hamara data aya adminShowPoduct se jo ki hamne navigate se /edit pe bheja tha or yaha uselocation se location variable ke andar lia 
+  
+  const navigate = useNavigate(); 
 
   const[_id,setId] = useState(location.state._id)
   const[name,setName]= useState(location.state.name)
   const[price,setPrice]= useState(location.state.price)
   const[description,setDescription]= useState(location.state.description)
-  const[category,setCategory]= useState(location.state.price)
+  const[category,setCategory]= useState(location.state.category)
   const[ratings,setRating]= useState(location.state.ratings)
-  const[imglink,setImgLink]= useState(location.state.imglink)
-  const[imgpid,setImgPid]= useState(location.state.imgpid)
+  const[imglink,setImgLink]= useState(location.state.images[0].url)
+  const[imgpid,setImgPid]= useState(location.state.images[0].public_id)
   const[seller,setSeller] = useState(location.state.seller)
   const[stock,setStock] = useState(location.state.stock)
   const reviews =[]
-  
+   
+  console.log('1111111111111')
+  console.log(location.state)
+
+
   
 
   const formSubmit = async (e) =>{
@@ -46,12 +55,17 @@ export default function EditHero() {
         stock:stock,
         reviews:'[]'
       }
+      
       const response = axios.put(`/api/v1/admin/product/${_id}`,formData) //2000 is our server
       response.then((data)=>{
-        console.log("datas",data)
+        console.log("datas",data);
+        alert("Product added/updated successfully");
+        navigate('/show')
       }).catch((err)=>{console.log("error", err)});
       // alert("status = ",response.message)
     }
+
+   
     
    
 
@@ -116,7 +130,7 @@ export default function EditHero() {
           </div>
           <br/>
 
-<button type = "submit" className='bg-fuchsia-400 text-white px-10 py-1 rounded-xl w-48 self-center my-5' >CLICK HERE</button>
+<button type = "submit" className='bg-fuchsia-400 text-white px-10 py-1 rounded-xl w-48 self-center my-5'>SUBMIT CHANGES</button>
     </form>
     <Footer/>
     </div>

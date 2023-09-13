@@ -32,7 +32,7 @@ exports.loginUser = async (req, res, next) => {
     // const { email, password } = JSON.stringify(req.body)
     const email = req.body.email
     const password = req.body.password
-    console.log(JSON.stringify(req.body) + ' rrrrrrrr')
+    console.log(JSON.stringify(req.body))
 
     //check if email and password entered by user
     if (!email || !password) {

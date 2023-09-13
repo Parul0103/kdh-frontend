@@ -29,7 +29,7 @@ exports.getSingleProduct = async(req,res,next) =>{
          })
 }
 
-//get all prducts =>api/v1/adiproducts
+//get all prd
 exports.getProducts = async (req, res, next) => {
     const products = await Product.find()
     const productsCount = await Product.countDocuments();

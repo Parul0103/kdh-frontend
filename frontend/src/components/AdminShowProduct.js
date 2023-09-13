@@ -1,3 +1,4 @@
+// http://localhost:3000/show           
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
@@ -7,6 +8,7 @@ import Footer from './Footer';
 export default function ShowHero() {
   const [heroData, setHeroData] = useState([])
   const navigate = useNavigate()
+
   const selectedId = []
 
   useEffect(() => {
@@ -15,7 +17,7 @@ export default function ShowHero() {
         console.table(res.data.products)
         setHeroData(res.data.products)
         console.log("hello ji kya hal shal ")
-      })
+      }).catch(err => { console.log(err) });
     }
     getData()
   }, [])
@@ -25,7 +27,9 @@ export default function ShowHero() {
       s_id: JSON.stringify(selectedId)
     }
     const result = await axios.delete(`/api/v1/admin/product/${selectedId[0]}`, formData)
-    // console.table('hello world' ,result)
+    alert('Successfully Deleted')
+    navigate('/')
+    console.table('hello world' ,result)
   }
 
   const editbtn = (item) => {
@@ -46,11 +50,11 @@ export default function ShowHero() {
   }
 
   return (
-    <div className='flex justify-center flex-col'>
-      <Header />
-      <div className='bg-fuchsia-700 py-10 px-12 text-white mt-10 mx-28 justify-between space-x-20 flex'>
-        <p>DELETE</p>
-        <p>PRODUCT NAME</p>
+    <div className='flex justify-center flex-col '>
+      <Header  />
+      <div className='bg-fuchsia-700 py-6 px-8 text-white mt-20 mx-28 space-x-24 flex '>
+        <p>CHECK</p>
+        <p className='ml-10'>PRODUCT NAME</p>
         <p>PRODUCT PRICE</p>
         <p>PRODUCT SELLER</p>
         <p>CREATION DATE</p>
@@ -69,18 +73,39 @@ export default function ShowHero() {
 // key={props.item._id}
 const HeroView = (props) => {
   return (
-    <table class="table-fixed"  >
-      <tr>
-        <div className='bg-fuchsia-600 w-auto py-2  text-white mx-28 my-1 justify-between  px-10 space-x-20 flex flex-row'>
-          <td className=''><input type='checkbox' value={props.item._id} onChange={(e) => props.setId(e, props.item._id)} /></td>
-          <td className=''>{props.item.name}</td>
-          <td className=''>{props.item.price}</td>
-          <td className=''>{props.item.seller}</td>
-          <td className=''>{props.item.createdAt}</td>
-          <td className=''>{props.item.category}</td>
-          <td className=''><button className='bg-fuchsia-500 px-5 rounded-xl ' onClick={() => props.editbtn(props.item)}>edit</button></td>
-        </div>
-      </tr>
-    </table>
-  )
+
+    <div className='bg-fuchsia-600 py-2  text-white mx-28 my-1 '>
+      <table class="table-fixed"  >
+
+        <tr className='flex flex-row justify-between  px-5'>
+
+          <td className=''>
+            <input type='checkbox' value={props.item._id} onChange={(e) => props.setId(e, props.item._id)} /></td>
+
+          <div className=' w-80 text-left mx-1 flex-row pl-20 '>
+            <td>{props.item.name}</td>
+          </div>
+
+          <div className=' w-24 text-align:left mx-0 '>
+            <td className='px-5'>{props.item.price}</td>
+          </div>
+
+          <div className=' w-64 text-left ml-24 flex-row '>
+            <td className=''>{props.item.seller}</td>
+          </div>
+
+          <div className=' w-60 text-left ml-2 flex-row '>
+            <td className=''>{props.item.createdAt}</td>
+          </div>
+          
+          <div className=' w-48 text-left ml-0 flex-row '>
+            <td className=''>{props.item.category}</td>
+          </div>
+
+          <td className=''><button className='bg-fuchsia-400 px-5 rounded-xl ' onClick={() => props.editbtn(props.item)}>edit</button></td>
+
+
+        </tr>
+      </table>
+    </div>)
 }

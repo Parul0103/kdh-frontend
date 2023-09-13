@@ -31,7 +31,7 @@ export default function AddAdminProduct() {
         reviews:'[]'
       }
       //IMAGE SENT AS AN EMPTY ARRAY
-      // console.log(data)
+      // console.log(formData)
       const response = axios.post('/api/v1/admin/products/new',formData) //2000 is our server
       response.then(res=>{
         console.log(res.data)}).catch(err =>{console.log(err)})
@@ -46,7 +46,9 @@ export default function AddAdminProduct() {
               <div className='flex w-6/12 self-center flex-col '>   
                 <label className='self-center text-white'>PRODUCT NAME</label>
                 <input type ='text' className='rounded-md' ref={name}/>
+                <p style ="background-color="></p>
               </div>
+            
 <br/>
               <div className='flex w-6/12 self-center flex-col'>
                 <label className='self-center text-white'>PRODUCT PRICE</label>

@@ -12,6 +12,8 @@ const SCOPES = ['https://www.googleapis.com/auth/documents.readonly'];
 const TOKEN_PATH = path.join(process.cwd(), 'token.json');
 const CREDENTIALS_PATH = path.join(process.cwd(), 'credentials.json');
 
+ const PORT = process.env.PORT||4000
+
 /**
  * Reads previously authorized credentials from the save file.
  *
@@ -26,6 +28,8 @@ async function loadSavedCredentialsIfExist() {
     return null;
   }
 }
+
+
 
 /**
  * Serializes credentials to a file comptible with GoogleAUth.fromJSON.
@@ -78,4 +82,7 @@ async function printDocTitle(auth) {
   console.log(`The title of the document is: ${res.data.title}`);
 }
 
+
+
 authorize().then(printDocTitle).catch(console.error);
+
