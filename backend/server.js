@@ -8,9 +8,10 @@ if (process.env.NODE_ENV !== 'PRODUCTION') require('dotenv').config({ path: 'bac
 
 // dotenv.config({path:'backend/config/config.env'})
 
+const port = process.env.PORT || 4000
 //connecting to db
 connectDatabase();
 
-app.listen(process.env.port , ()=>{
-    console.log(`server started on port : ${process.env.PORT} in  ${process.env.NODE_env} mode`)
+app.listen(port , ()=>{
+    console.log(`server started on port : ${port} in  ${process.env.NODE_env} mode`)
 })
